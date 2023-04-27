@@ -47,7 +47,7 @@ async function login(req, res) {
 
 
     //send it
-    res.sendStatus(200);
+    res.sendStatus(200)
 }
 
 function logout(req, res) {}
