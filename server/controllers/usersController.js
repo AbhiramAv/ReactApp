@@ -22,6 +22,7 @@ async function signup(req, res) {
 }
 
 async function login(req, res) {
+    try{
     //Get email/pass
     const {email, password} = req.body;
 
@@ -48,18 +49,29 @@ async function login(req, res) {
 
     //send it
     res.sendStatus(200);
+} catch(err){
+    res.sendStatus(400);
+}
 }
 
 function logout(req, res) {
+    try{
     //Delete the cookie
     res.clearCookie("Authorization");
     res.sendStatus(200);
+    } catch(err){
+    res.sendStatus(400);
+}
 }
 
 
 function checkAuth( req, res){
+    try{
     console.log(req.user);
     res.sendStatus(200);
+    } catch(err){
+        res.sendStatus(400);
+    }
 }
 
 module.exports = {
