@@ -47,13 +47,18 @@ async function login(req, res) {
 
 
     //send it
-    res.sendStatus(200)
+    res.sendStatus(200);
 }
 
-function logout(req, res) {}
+function logout(req, res) {
+    //Delete the cookie
+    res.clearCookie("Authorization");
+    res.sendStatus(200);
+}
 
 
 function checkAuth( req, res){
+    console.log(req.user);
     res.sendStatus(200);
 }
 
